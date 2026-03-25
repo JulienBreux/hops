@@ -1,8 +1,13 @@
 package checker
 
 import (
+	"context"
 	"net/http"
 	"time"
+
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/grpc/health/grpc_health_v1"
 )
 
 type Result struct {
@@ -43,5 +48,44 @@ func (c *HTTPChecker) Check() (Result, error) {
 		Up:         up,
 		StatusCode: resp.StatusCode,
 		Latency:    latency,
+	}, nil
+}
+
+type GRPCChecker struct {
+	Name    string
+	Address string
+	Service string
+	Timeout time.Duration
+}
+
+func (c *GRPCChecker) Check() (Result, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), c.Timeout)
+	defer cancel()
+
+	start := time.Now()
+	conn, err := grpc.DialContext(ctx, c.Address,
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+		grpc.WithBlock(),
+	)
+	if err != nil {
+		return Result{Up: false, Latency: time.Since(start)}, err
+	}
+	defer conn.Close()
+
+	client := grpc_health_v1.NewHealthClient(conn)
+	resp, err := client.Check(ctx, &grpc_health_v1.HealthCheckRequest{
+		Service: c.Service,
+	})
+	latency := time.Since(start)
+
+	if err != nil {
+		return Result{Up: false, Latency: latency}, err
+	}
+
+	up := resp.GetStatus() == grpc_health_v1.HealthCheckResponse_SERVING
+
+	return Result{
+		Up:      up,
+		Latency: latency,
 	}, nil
 }
