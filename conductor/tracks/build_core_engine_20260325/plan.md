@@ -11,7 +11,7 @@
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Go Backend Setup & Config Parsing' (Protocol in workflow.md)
 
 ## Phase 2: Core Polling Engine
-- [ ] Task: HTTP Polling
+- [x] Task: HTTP Polling (224cb94)
     - [ ] Write Tests for HTTP polling service.
     - [ ] Implement HTTP polling logic (status code, latency).
 - [ ] Task: gRPC Polling
