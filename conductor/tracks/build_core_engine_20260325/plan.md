@@ -1,6 +1,6 @@
 # Implementation Plan: Build core HTTP/gRPC polling engine and basic SPA dashboard
 
-## Phase 1: Go Backend Setup & Config Parsing
+## Phase 1: Go Backend Setup & Config Parsing [checkpoint: 0b329c0]
 - [x] Task: Project initialization (c7e2c2e)
     - [x] Initialize Go module (`go mod init`).
     - [x] Install Echo framework.
