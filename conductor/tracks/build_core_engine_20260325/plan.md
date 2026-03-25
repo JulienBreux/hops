@@ -14,7 +14,7 @@
 - [x] Task: HTTP Polling (224cb94)
     - [ ] Write Tests for HTTP polling service.
     - [ ] Implement HTTP polling logic (status code, latency).
-- [ ] Task: gRPC Polling
+- [x] Task: gRPC Polling (2233db7)
     - [ ] Write Tests for gRPC health checking.
     - [ ] Implement gRPC polling logic.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Core Polling Engine' (Protocol in workflow.md)
