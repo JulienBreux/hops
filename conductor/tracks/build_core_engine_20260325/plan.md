@@ -23,7 +23,7 @@
 - [x] Task: Svelte setup (1e3f3e5)
     - [x] Initialize Svelte project structure.
     - [ ] Add basic routing and state management.
-- [ ] Task: Integration
+- [x] Task: Integration (fd76621)
     - [ ] Create API endpoint in Go to serve health statuses.
     - [ ] Connect Svelte SPA to the Go backend API.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Basic SPA Dashboard Setup' (Protocol in workflow.md)
