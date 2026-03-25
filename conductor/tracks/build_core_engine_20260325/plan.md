@@ -1,9 +1,9 @@
 # Implementation Plan: Build core HTTP/gRPC polling engine and basic SPA dashboard
 
 ## Phase 1: Go Backend Setup & Config Parsing
-- [ ] Task: Project initialization
-    - [ ] Initialize Go module (`go mod init`).
-    - [ ] Install Echo framework.
+- [x] Task: Project initialization (c7e2c2e)
+    - [x] Initialize Go module (`go mod init`).
+    - [x] Install Echo framework.
 - [ ] Task: YAML parsing implementation
     - [ ] Write Tests for YAML parser.
     - [ ] Implement YAML parsing logic.
