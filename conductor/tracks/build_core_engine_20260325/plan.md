@@ -4,7 +4,7 @@
 - [x] Task: Project initialization (c7e2c2e)
     - [x] Initialize Go module (`go mod init`).
     - [x] Install Echo framework.
-- [ ] Task: YAML parsing implementation
+- [x] Task: YAML parsing implementation (1acbea6)
     - [ ] Write Tests for YAML parser.
     - [ ] Implement YAML parsing logic.
     - [ ] Add Environment Variable fallback logic.
