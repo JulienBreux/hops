@@ -19,7 +19,7 @@
     - [ ] Implement gRPC polling logic.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Core Polling Engine' (Protocol in workflow.md)
 
-## Phase 3: Basic SPA Dashboard Setup
+## Phase 3: Basic SPA Dashboard Setup [checkpoint: bd33209]
 - [x] Task: Svelte setup (1e3f3e5)
     - [x] Initialize Svelte project structure.
     - [ ] Add basic routing and state management.
