@@ -19,7 +19,18 @@ function createHealthStore() {
 	return {
 		subscribe,
 		set,
-		updateStatus: (services: Service[]) => set(services)
+		updateStatus: (services: Service[]) => set(services),
+		fetchStatus: async () => {
+			try {
+				const response = await fetch('http://localhost:8080/api/health');
+				if (response.ok) {
+					const data = await response.json();
+					set(data);
+				}
+			} catch (error) {
+				console.error('Failed to fetch health status:', error);
+			}
+		}
 	};
 }
 

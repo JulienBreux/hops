@@ -1,23 +1,15 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { health } from '$lib/stores/health';
 
-	// Mock data for initial layout testing
-	const mockServices = [
-		{
-			name: 'API Gateway',
-			description: 'Main entry point',
-			emoji: '🚀',
-			checks: [{ name: 'health', up: true, latency: 12 }]
-		},
-		{
-			name: 'Auth Service',
-			description: 'Authentication logic',
-			emoji: '🔒',
-			checks: [{ name: 'health', up: false, latency: 0 }]
-		}
-	];
+	onMount(() => {
+		health.fetchStatus();
+		const interval = setInterval(() => {
+			health.fetchStatus();
+		}, 5000);
 
-	// health.set(mockServices);
+		return () => clearInterval(interval);
+	});
 </script>
 
 <main class="dashboard">
@@ -26,23 +18,27 @@
 	</header>
 
 	<div class="services-grid">
-		{#each $health.length > 0 ? $health : mockServices as service}
-			<div class="service-card" class:down={service.checks.some((c) => !c.up)}>
-				<div class="service-header">
-					<span class="emoji">{service.emoji}</span>
-					<h2>{service.name}</h2>
+		{#if $health.length === 0}
+			<div class="loading">Loading services status...</div>
+		{:else}
+			{#each $health as service}
+				<div class="service-card" class:down={service.checks.some((c) => !c.up)}>
+					<div class="service-header">
+						<span class="emoji">{service.emoji}</span>
+						<h2>{service.name}</h2>
+					</div>
+					<p>{service.description}</p>
+					<div class="checks">
+						{#each service.checks as check}
+							<div class="check" class:up={check.up} class:down={!check.up}>
+								<span class="status-indicator"></span>
+								{check.name} ({check.latency}ms)
+							</div>
+						{/each}
+					</div>
 				</div>
-				<p>{service.description}</p>
-				<div class="checks">
-					{#each service.checks as check}
-						<div class="check" class:up={check.up} class:down={!check.up}>
-							<span class="status-indicator"></span>
-							{check.name} ({check.latency}ms)
-						</div>
-					{/each}
-				</div>
-			</div>
-		{/each}
+			{/each}
+		{/if}
 	</div>
 </main>
 
@@ -72,6 +68,14 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		gap: 1.5rem;
+	}
+
+	.loading {
+		grid-column: 1 / -1;
+		text-align: center;
+		padding: 3rem;
+		color: #6c757d;
+		font-style: italic;
 	}
 
 	.service-card {
