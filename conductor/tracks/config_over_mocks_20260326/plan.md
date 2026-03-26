@@ -4,10 +4,10 @@
 - [x] Task: Define configuration data structures in Go [3715842]
     - [x] Create a `Config` struct that matches the hierarchical specification.
     - [x] Add unit tests for the configuration struct's JSON/YAML marshaling.
-- [ ] Task: Implement configuration loader
-    - [ ] Create a function to load configuration from the file specified by `CONFIG_PATH`.
-    - [ ] Implement logic to load or override configuration from environment variables.
-    - [ ] Write unit tests for the configuration loader, covering successful loads and fallback to empty state.
+- [x] Task: Implement configuration loader [3b68a74]
+    - [x] Create a function to load configuration from the file specified by `CONFIG_PATH`.
+    - [x] Implement logic to load or override configuration from environment variables.
+    - [x] Write unit tests for the configuration loader, covering successful loads and fallback to empty state.
 - [ ] Task: Integrate configuration into health check API
     - [ ] Replace hardcoded mocks in the `/api/health` endpoint with data from the loaded configuration.
     - [ ] Update integration tests for the API to verify it returns the actual configured services.
