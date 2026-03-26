@@ -24,5 +24,23 @@ if ! grep -q "Login to GitHub Container Registry" ".github/workflows/publish.yml
     exit 1
 fi
 
-echo "PASS: Workflow file, trigger, and login steps verified"
+# Test: Docker metadata exists
+if ! grep -q "docker/metadata-action" ".github/workflows/publish.yml"; then
+    echo "FAIL: Docker metadata action not found"
+    exit 1
+fi
+
+# Test: Build and push exists
+if ! grep -q "docker/build-push-action" ".github/workflows/publish.yml"; then
+    echo "FAIL: Build and push action not found"
+    exit 1
+fi
+
+# Test: Platforms configured
+if ! grep -q "linux/amd64,linux/arm64,linux/arm/v7" ".github/workflows/publish.yml"; then
+    echo "FAIL: Target platforms not correctly configured"
+    exit 1
+fi
+
+echo "PASS: Workflow file, trigger, login, and build steps verified"
 exit 0
