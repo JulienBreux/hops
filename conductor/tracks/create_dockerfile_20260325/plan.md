@@ -15,8 +15,8 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Makefile Implementation' (Protocol in workflow.md)
 
 ## Phase 3: README Documentation
-- [ ] Task: Update README.md
-    - [ ] Document the local setup instructions (Go + Svelte).
-    - [ ] Document configuration management (YAML and Env vars).
-    - [ ] Document Docker deployment steps, including Serverless/Cloud Run deployment.
+- [x] Task: Update README.md (8ec6df9)
+    - [x] Document the local setup instructions (Go + Svelte).
+    - [x] Document configuration management (YAML and Env vars).
+    - [x] Document Docker deployment steps, including Serverless/Cloud Run deployment.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: README Documentation' (Protocol in workflow.md)
