@@ -24,9 +24,10 @@ lint:
 	@echo "Checking Svelte code..."
 	cd web && npm run check
 
-# Docker targets
+# Docker build
 docker-build:
 	docker build -t hops .
 
+# Docker run
 docker-run:
 	docker run -p 8080:8080 hops
