@@ -11,3 +11,7 @@
 
 ## Data Storage & Configuration
 - **In-Memory / Config-only**: To ensure absolute simplicity and a zero-friction setup, Hops will run in a stateless manner. Configuration will be managed entirely via YAML files or Environment variables, storing runtime state in-memory without requiring external databases.
+
+## Infrastructure & Deployment
+- **Docker**: Used to containerize the application for consistent deployment across environments.
+- **Alpine Linux**: The base image for the final production container, ensuring a minimal and secure footprint.
