@@ -29,26 +29,32 @@ func main() {
 
 	// Mock results for now
 	e.GET("/api/health", func(c echo.Context) error {
-		statuses := []ServiceStatus{
-			{
-				Name:        "API Gateway",
-				Description: "Main entry point",
-				Emoji:       "🚀",
-				Checks: []CheckResult{
-					{Name: "health", Up: true, Latency: 15},
-				},
-			},
-			{
-				Name:        "Auth Service",
-				Description: "Authentication logic",
-				Emoji:       "🔒",
-				Checks: []CheckResult{
-					{Name: "health", Up: true, Latency: 8},
-				},
-			},
-		}
-		return c.JSON(http.StatusOK, statuses)
+	        statuses := []ServiceStatus{
+	                {
+	                        Name:        "API Gateway",
+	                        Description: "Main entry point",
+	                        Emoji:       "🚀",
+	                        Checks: []CheckResult{
+	                                {Name: "health", Up: true, Latency: 15},
+	                        },
+	                },
+	                {
+	                        Name:        "Auth Service",
+	                        Description: "Authentication logic",
+	                        Emoji:       "🔒",
+	                        Checks: []CheckResult{
+	                                {Name: "health", Up: true, Latency: 8},
+	                        },
+	                },
+	        }
+	        return c.JSON(http.StatusOK, statuses)
 	})
 
-	e.Logger.Fatal(e.Start(":8080"))
-}
+	// Serve static files from the Svelte build directory and enable SPA fallback
+	e.Use(middleware.StaticWithConfig(middleware.StaticConfig{
+	        Root:   "web/build",
+	        Index:  "index.html",
+	        HTML5:  true,
+	}))
+
+	e.Logger.Fatal(e.Start(":8080"))}
