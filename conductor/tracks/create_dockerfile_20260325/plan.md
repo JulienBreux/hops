@@ -14,9 +14,9 @@
     - [ ] Implement `docker-build` and `docker-run` targets.
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Makefile Implementation' (Protocol in workflow.md)
 
-## Phase 3: README Documentation
+## Phase 3: README Documentation [checkpoint: da87225]
 - [x] Task: Update README.md (8ec6df9)
     - [x] Document the local setup instructions (Go + Svelte).
     - [x] Document configuration management (YAML and Env vars).
     - [x] Document Docker deployment steps, including Serverless/Cloud Run deployment.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: README Documentation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: README Documentation' (Protocol in workflow.md)
