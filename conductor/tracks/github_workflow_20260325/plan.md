@@ -1,11 +1,11 @@
 # Implementation Plan: Create the Github worflow to publish Docker image in Github and Docker hub
 
-## Phase 1: Workflow Setup
+## Phase 1: Workflow Setup [checkpoint: 9443ce7]
 - [x] Task: Create GitHub Actions workflow file [40e7a5d]
-    - [ ] Create `.github/workflows/publish.yml` file.
-    - [ ] Define trigger events for tag pushes (`v*`).
-    - [ ] Setup QEMU and Docker Buildx to support multi-architecture builds.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Workflow Setup' (Protocol in workflow.md)
+    - [x] Create `.github/workflows/publish.yml` file.
+    - [x] Define trigger events for tag pushes (`v*`).
+    - [x] Setup QEMU and Docker Buildx to support multi-architecture builds.
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Workflow Setup' (Protocol in workflow.md) [9443ce7]
 
 ## Phase 2: Docker Image Build and Push
 - [ ] Task: Authenticate to Docker Registries
