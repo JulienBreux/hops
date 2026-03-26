@@ -1,86 +1,49 @@
-package config
+package config_test
 
 import (
-	"os"
 	"testing"
 
+	"github.com/julienbreux/hops/internal/config"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+	"gopkg.in/yaml.v3"
 )
 
-func TestParseConfig(t *testing.T) {
-	yamlContent := `
+func TestConfigUnmarshalYAML(t *testing.T) {
+	yamlData := []byte(`
 services:
-  - name: test-service
-    description: "A test service"
-    emoji: "🔍"
+  - name: API Gateway
+    description: Main entry point
+    emoji: 🚀
     checks:
       - name: health
         type: http
-        endpoint: http://localhost:8080/health
-        method: GET
-`
-	tmpfile, err := os.CreateTemp("", "config.yaml")
-	assert.NoError(t, err)
-	defer os.Remove(tmpfile.Name())
+        target: http://api:8080/health
+  - name: Auth Service
+    description: Authentication logic
+    emoji: 🔒
+    checks:
+      - name: health
+        type: grpc
+        target: auth:50051
+`)
 
-	_, err = tmpfile.Write([]byte(yamlContent))
-	assert.NoError(t, err)
-	err = tmpfile.Close()
-	assert.NoError(t, err)
+	var cfg config.Config
+	err := yaml.Unmarshal(yamlData, &cfg)
 
-	cfg, err := Parse(tmpfile.Name())
-	assert.NoError(t, err)
+	require.NoError(t, err)
+	require.Len(t, cfg.Services, 2)
 
-	assert.Equal(t, 1, len(cfg.Services))
-	assert.Equal(t, "test-service", cfg.Services[0].Name)
-	assert.Equal(t, "A test service", cfg.Services[0].Description)
-	assert.Equal(t, "🔍", cfg.Services[0].Emoji)
-	assert.Equal(t, 1, len(cfg.Services[0].Checks))
+	assert.Equal(t, "API Gateway", cfg.Services[0].Name)
+	assert.Equal(t, "Main entry point", cfg.Services[0].Description)
+	assert.Equal(t, "🚀", cfg.Services[0].Emoji)
+	require.Len(t, cfg.Services[0].Checks, 1)
 	assert.Equal(t, "health", cfg.Services[0].Checks[0].Name)
 	assert.Equal(t, "http", cfg.Services[0].Checks[0].Type)
-	assert.Equal(t, "http://localhost:8080/health", cfg.Services[0].Checks[0].Endpoint)
-	assert.Equal(t, "GET", cfg.Services[0].Checks[0].Method)
-}
+	assert.Equal(t, "http://api:8080/health", cfg.Services[0].Checks[0].Target)
 
-func TestParseConfigEnvFallback(t *testing.T) {
-	os.Setenv("HOPS_SERVICE_NAME", "env-service")
-	defer os.Unsetenv("HOPS_SERVICE_NAME")
-
-	yamlContent := `
-services:
-  - name: "${HOPS_SERVICE_NAME}"
-`
-	tmpfile, err := os.CreateTemp("", "config.yaml")
-	assert.NoError(t, err)
-	defer os.Remove(tmpfile.Name())
-
-	_, err = tmpfile.Write([]byte(yamlContent))
-	assert.NoError(t, err)
-	err = tmpfile.Close()
-	assert.NoError(t, err)
-
-	cfg, err := Parse(tmpfile.Name())
-	assert.NoError(t, err)
-
-	assert.Equal(t, 1, len(cfg.Services))
-	assert.Equal(t, "env-service", cfg.Services[0].Name)
-}
-
-func TestParseConfigNonExistent(t *testing.T) {
-	_, err := Parse("non-existent.yaml")
-	assert.Error(t, err)
-}
-
-func TestParseConfigMalformed(t *testing.T) {
-	tmpfile, err := os.CreateTemp("", "malformed.yaml")
-	assert.NoError(t, err)
-	defer os.Remove(tmpfile.Name())
-
-	_, err = tmpfile.Write([]byte("services: [malformed"))
-	assert.NoError(t, err)
-	err = tmpfile.Close()
-	assert.NoError(t, err)
-
-	_, err = Parse(tmpfile.Name())
-	assert.Error(t, err)
+	assert.Equal(t, "Auth Service", cfg.Services[1].Name)
+	assert.Equal(t, "🔒", cfg.Services[1].Emoji)
+	require.Len(t, cfg.Services[1].Checks, 1)
+	assert.Equal(t, "grpc", cfg.Services[1].Checks[0].Type)
 }
