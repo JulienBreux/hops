@@ -29,3 +29,4 @@ The Hops project is available in a Docker image format to be usable by service p
 ## Deployment Environments
 - **Serverless / Cloud Run**: Optimized for stateless execution, allowing incredibly easy deployment on platforms like Cloud Run.
 - **Docker / Local**: Distributed as a lightweight standalone container image, perfect for local development or straightforward server setups.
+- **Automated Multi-Arch Releases**: Distributed as a lightweight multi-architecture Docker image (`linux/amd64`, `linux/arm64`, `linux/arm/v7`) automatically published to Docker Hub and GitHub Container Registry upon every release.

@@ -15,3 +15,4 @@
 ## Infrastructure & Deployment
 - **Docker**: Used to containerize the application for consistent deployment across environments.
 - **Alpine Linux**: The base image for the final production container, ensuring a minimal and secure footprint.
+- **GitHub Actions**: Automates the CI/CD pipeline, building and publishing multi-architecture Docker images (`linux/amd64`, `linux/arm64`, `linux/arm/v7`) to multiple registries.
