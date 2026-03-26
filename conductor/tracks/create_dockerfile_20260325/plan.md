@@ -8,7 +8,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Dockerfile Creation' (Protocol in workflow.md)
 
 ## Phase 2: Makefile Implementation
-- [ ] Task: Create Makefile
+- [x] Task: Create Makefile (c8b7504)
     - [ ] Implement `build` target for local Go and Svelte builds.
     - [ ] Implement `test` and `lint` targets.
     - [ ] Implement `docker-build` and `docker-run` targets.
