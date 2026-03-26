@@ -1,10 +1,10 @@
 # Implementation Plan: Create the Dockerfile with an associate Makefile and document the README
 
 ## Phase 1: Dockerfile Creation
-- [ ] Task: Create multi-stage Dockerfile
-    - [ ] Write Stage 1 to build the Svelte SPA (Node.js).
-    - [ ] Write Stage 2 to build the Go binary.
-    - [ ] Write Stage 3 to assemble the final minimal image (Alpine Linux).
+- [x] Task: Create multi-stage Dockerfile (0897d9c)
+    - [x] Write Stage 1 to build the Svelte SPA (Node.js).
+    - [x] Write Stage 2 to build the Go binary.
+    - [x] Write Stage 3 to assemble the final minimal image (Alpine Linux).
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Dockerfile Creation' (Protocol in workflow.md)
 
 ## Phase 2: Makefile Implementation
