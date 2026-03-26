@@ -8,9 +8,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Workflow Setup' (Protocol in workflow.md) [9443ce7]
 
 ## Phase 2: Docker Image Build and Push
-- [ ] Task: Authenticate to Docker Registries
-    - [ ] Add steps to log in to Docker Hub using GitHub Secrets (`DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`).
-    - [ ] Add steps to log in to GitHub Container Registry using `GITHUB_TOKEN`.
+- [x] Task: Authenticate to Docker Registries [84d15a2]
+    - [x] Add steps to log in to Docker Hub using GitHub Secrets (`DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`).
+    - [x] Add steps to log in to GitHub Container Registry using `GITHUB_TOKEN`.
 - [ ] Task: Build and Push Multi-Arch Image
     - [ ] Implement Docker Build and Push step using `docker/build-push-action`.
     - [ ] Configure target platforms (`linux/amd64`, `linux/arm64`, `linux/arm/v7`).
