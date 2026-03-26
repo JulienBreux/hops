@@ -11,8 +11,8 @@
 - [x] Task: Authenticate to Docker Registries [84d15a2]
     - [x] Add steps to log in to Docker Hub using GitHub Secrets (`DOCKERHUB_USERNAME`, `DOCKERHUB_TOKEN`).
     - [x] Add steps to log in to GitHub Container Registry using `GITHUB_TOKEN`.
-- [ ] Task: Build and Push Multi-Arch Image
-    - [ ] Implement Docker Build and Push step using `docker/build-push-action`.
-    - [ ] Configure target platforms (`linux/amd64`, `linux/arm64`, `linux/arm/v7`).
-    - [ ] Apply exact semantic and SHA tagging metadata utilizing `docker/metadata-action`.
+- [x] Task: Build and Push Multi-Arch Image [e2ea3d4]
+    - [x] Implement Docker Build and Push step using `docker/build-push-action`.
+    - [x] Configure target platforms (`linux/amd64`, `linux/arm64`, `linux/arm/v7`).
+    - [x] Apply exact semantic and SHA tagging metadata utilizing `docker/metadata-action`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Docker Image Build and Push' (Protocol in workflow.md)
