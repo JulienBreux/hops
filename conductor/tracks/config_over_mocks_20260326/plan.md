@@ -1,9 +1,9 @@
 # Implementation Plan: Use the configuration instead of mocks and handle empty configuration
 
 ## Phase 1: Backend Configuration Implementation
-- [ ] Task: Define configuration data structures in Go
-    - [ ] Create a `Config` struct that matches the hierarchical specification.
-    - [ ] Add unit tests for the configuration struct's JSON/YAML marshaling.
+- [x] Task: Define configuration data structures in Go [3715842]
+    - [x] Create a `Config` struct that matches the hierarchical specification.
+    - [x] Add unit tests for the configuration struct's JSON/YAML marshaling.
 - [ ] Task: Implement configuration loader
     - [ ] Create a function to load configuration from the file specified by `CONFIG_PATH`.
     - [ ] Implement logic to load or override configuration from environment variables.
