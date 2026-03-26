@@ -1,5 +1,5 @@
 # Stage 1: Build the Svelte SPA
-FROM node:20-alpine AS frontend-builder
+FROM node:25-alpine AS frontend-builder
 WORKDIR /app/web
 COPY web/package.json web/package-lock.json* ./
 RUN npm ci || npm install
@@ -7,7 +7,7 @@ COPY web/ .
 RUN npm run build
 
 # Stage 2: Build the Go binary
-FROM golang:1.22-alpine AS backend-builder
+FROM golang:1.26-alpine AS backend-builder
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
@@ -16,7 +16,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -o hops main.go
 
 # Stage 3: Assemble the final minimal image
-FROM alpine:3.19
+FROM alpine:3.23
 WORKDIR /app
 # Install CA certificates for external API calls if needed
 RUN apk --no-cache add ca-certificates tzdata

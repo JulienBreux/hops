@@ -14,8 +14,8 @@ Hops is a lightweight, real-time health-checking application designed to verify 
 
 ### Prerequisites
 
-- [Go](https://go.dev/doc/install) 1.22+
-- [Node.js](https://nodejs.org/en/download/) 20+
+- [Go](https://go.dev/doc/install) 1.26+
+- [Node.js](https://nodejs.org/en/download/) 25+
 - [Docker](https://docs.docker.com/get-docker/) (optional, for containerization)
 
 ### Local Development
