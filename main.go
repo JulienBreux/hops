@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/julienbreux/hops/internal/config"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -22,7 +23,7 @@ type ServiceStatus struct {
 	Checks      []CheckResult `json:"checks"`
 }
 
-func main() {
+func setupApp() *echo.Echo {
 	e := echo.New()
 
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
@@ -44,26 +45,38 @@ func main() {
 	e.Use(middleware.Recover())
 	e.Use(middleware.CORS())
 
-	// Mock results for now
+	// Load configuration
+	cfg, err := config.Load()
+	if err != nil {
+		slog.Error("Failed to load configuration", "error", err)
+		// We proceed with what we have (an empty config fallback is handled by the loader)
+	}
+
 	e.GET("/api/health", func(c echo.Context) error {
-		statuses := []ServiceStatus{
-			{
-				Name:        "API Gateway",
-				Description: "Main entry point",
-				Emoji:       "🚀",
-				Checks: []CheckResult{
-					{Name: "health", Up: true, Latency: 15},
-				},
-			},
-			{
-				Name:        "Auth Service",
-				Description: "Authentication logic",
-				Emoji:       "🔒",
-				Checks: []CheckResult{
-					{Name: "health", Up: true, Latency: 8},
-				},
-			},
+		var statuses []ServiceStatus
+		if cfg != nil && cfg.Services != nil {
+			for _, s := range cfg.Services {
+				status := ServiceStatus{
+					Name:        s.Name,
+					Description: s.Description,
+					Emoji:       s.Emoji,
+					Checks:      []CheckResult{},
+				}
+				for _, chk := range s.Checks {
+					status.Checks = append(status.Checks, CheckResult{
+						Name:    chk.Name,
+						Up:      true, // Mocking actual execution result for now
+						Latency: 0,
+					})
+				}
+				statuses = append(statuses, status)
+			}
 		}
+
+		if statuses == nil {
+			statuses = []ServiceStatus{}
+		}
+
 		return c.JSON(http.StatusOK, statuses)
 	})
 
@@ -74,5 +87,10 @@ func main() {
 		HTML5: true,
 	}))
 
+	return e
+}
+
+func main() {
+	e := setupApp()
 	e.Logger.Fatal(e.Start(":8080"))
 }
