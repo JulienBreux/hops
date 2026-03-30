@@ -8,9 +8,9 @@
     - [x] Create a function to load configuration from the file specified by `CONFIG_PATH`.
     - [x] Implement logic to load or override configuration from environment variables.
     - [x] Write unit tests for the configuration loader, covering successful loads and fallback to empty state.
-- [ ] Task: Integrate configuration into health check API
-    - [ ] Replace hardcoded mocks in the `/api/health` endpoint with data from the loaded configuration.
-    - [ ] Update integration tests for the API to verify it returns the actual configured services.
+- [x] Task: Integrate configuration into health check API [2f7f891]
+    - [x] Replace hardcoded mocks in the `/api/health` endpoint with data from the loaded configuration.
+    - [x] Update integration tests for the API to verify it returns the actual configured services.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Backend Configuration Implementation' (Protocol in workflow.md)
 
 ## Phase 2: Frontend Empty State and Guide
