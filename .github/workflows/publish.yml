@@ -45,8 +45,12 @@ jobs:
             ghcr.io/${{ github.repository }}
           tags: |
             type=semver,pattern={{version}}
+            type=semver,pattern=v{{version}}
             type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern=v{{major}}.{{minor}}
             type=semver,pattern={{major}}
+            type=semver,pattern=v{{major}}
+            type=raw,value=stable
             type=sha,prefix=sha-
 
       - name: Build and push Docker image
