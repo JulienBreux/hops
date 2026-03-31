@@ -1,28 +1,28 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { health } from '$lib/stores/health';
+        import { onMount } from 'svelte';
+        import { health, isEmpty } from '$lib/stores/health';
+        import EmptyState from '$lib/components/EmptyState.svelte';
 
-	onMount(() => {
-		health.fetchStatus();
-		const interval = setInterval(() => {
-			health.fetchStatus();
-		}, 5000);
+        onMount(() => {
+                health.fetchStatus();
+                const interval = setInterval(() => {
+                        health.fetchStatus();
+                }, 5000);
 
-		return () => clearInterval(interval);
-	});
+                return () => clearInterval(interval);
+        });
 </script>
 
 <main class="dashboard">
-	<header>
-		<h1>⚡ Hops Dashboard</h1>
-	</header>
+        <header>
+                <h1>⚡ Hops Dashboard</h1>
+        </header>
 
-	<div class="services-grid">
-		{#if $health.length === 0}
-			<div class="loading">Loading services status...</div>
-		{:else}
-			{#each $health as service}
-				<div class="service-card" class:down={service.checks.some((c) => !c.up)}>
+        <div class="services-grid">
+                {#if $isEmpty}
+                        <EmptyState />
+                {:else}
+                        {#each $health as service}				<div class="service-card" class:down={service.checks.some((c) => !c.up)}>
 					<div class="service-header">
 						<span class="emoji">{service.emoji}</span>
 						<h2>{service.name}</h2>
@@ -70,13 +70,6 @@
 		gap: 1.5rem;
 	}
 
-	.loading {
-		grid-column: 1 / -1;
-		text-align: center;
-		padding: 3rem;
-		color: #6c757d;
-		font-style: italic;
-	}
 
 	.service-card {
 		background: white;
