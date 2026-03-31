@@ -1,4 +1,4 @@
-name: Publish Docker Image
+name: Create and publish a Docker image
 
 on:
   push:
@@ -6,11 +6,16 @@ on:
       - 'v*'
 
 jobs:
-  publish:
+  build-and-push-image:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v4
