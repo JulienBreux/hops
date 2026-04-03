@@ -1,10 +1,10 @@
 # Implementation Plan: Add Cloud Run Deployment Button
 
 ## Phase 1: Preparation & Research
-- [ ] Task: Research official 'Deploy to Google Cloud' button specifications
-    - [ ] Locate the official SVG for the button
-    - [ ] Determine the deployment link URL structure (deploy.cloud.google.com)
-    - [ ] Identify parameters for repository, branch, and environment variables
+- [x] Task: Research official 'Deploy to Google Cloud' button specifications
+    - [x] Locate the official SVG for the button
+    - [x] Determine the deployment link URL structure (deploy.cloud.google.com)
+    - [x] Identify parameters for repository, branch, and environment variables
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Preparation & Research' (Protocol in workflow.md)
 
 ## Phase 2: Implementation
