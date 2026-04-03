@@ -2,6 +2,8 @@
 
 Hops is a lightweight, real-time health-checking application designed to verify connectivity between services using HTTP or gRPC protocols. It provides a visual dashboard to monitor the health of your distributed architecture with zero-friction setup.
 
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?git_repo=https://github.com/julienbreux/hops)
+
 ## ✨ Features
 
 - **Real-Time Monitoring**: Instant visibility into service health via a Svelte-based SPA.
