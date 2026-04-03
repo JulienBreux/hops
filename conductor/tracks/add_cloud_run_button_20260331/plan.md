@@ -8,10 +8,10 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Preparation & Research' (Protocol in workflow.md) [e2492cb]
 
 ## Phase 2: Implementation
-- [ ] Task: Integrate button into README.md
-    - [ ] Locate the appropriate insertion point at the top of README.md
-    - [ ] Add the Markdown for the button image and link
-    - [ ] Verify the link points to the `main` branch of `https://github.com/julienbreux/hops`
+- [x] Task: Integrate button into README.md [04d3c66]
+    - [x] Locate the appropriate insertion point at the top of README.md
+    - [x] Add the Markdown for the button image and link
+    - [x] Verify the link points to the `main` branch of `https://github.com/julienbreux/hops`
 - [ ] Task: Configure deployment parameters
     - [ ] Add `app.json` or equivalent if required for Cloud Run button (or use URL params)
     - [ ] Ensure `julienbreux/hops:latest` image is referenced
