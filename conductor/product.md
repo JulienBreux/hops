@@ -13,7 +13,7 @@ Specific routes to test, including HTTP verbs or gRPC methods.
 The user interface consists of a single-page application (SPA) that provides a clear representation of each service's status in real time.
 This vision includes a mapping mechanism for services and jobs to provide a comprehensive overview of the system's health.
 
-The Hops project is available in a Docker image format to be usable by service providers like Cloud Run. Deploying Hops on Cloud Run is really easy.
+The Hops project is available in a Docker image format to be usable by service providers like Cloud Run. Deploying Hops on Cloud Run is really easy, with a one-click deployment button available in the repository.
 
 ## Target Audience
 - **Backend Developers**: Primary users leveraging Hops to test local microservices connectivity during development.

@@ -14,5 +14,6 @@
 
 ## Infrastructure & Deployment
 - **Docker**: Used to containerize the application for consistent deployment across environments.
+- **Cloud Run Button**: Provides a one-click deployment path to Google Cloud Run, using the repository's configuration.
 - **Alpine Linux**: The base image for the final production container, ensuring a minimal and secure footprint.
 - **GitHub Actions**: Automates the CI/CD pipeline, building and publishing multi-architecture Docker images (`linux/amd64`, `linux/arm64`, `linux/arm/v7`) to multiple registries.
