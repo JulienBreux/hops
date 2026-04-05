@@ -12,10 +12,10 @@
     - [x] Locate the appropriate insertion point at the top of README.md
     - [x] Add the Markdown for the button image and link
     - [x] Verify the link points to the `main` branch of `https://github.com/julienbreux/hops`
-- [ ] Task: Configure deployment parameters
-    - [ ] Add `app.json` or equivalent if required for Cloud Run button (or use URL params)
-    - [ ] Ensure `julienbreux/hops:latest` image is referenced
-    - [ ] Add placeholders for `HOPS_CONFIG_PATH`
+- [x] Task: Configure deployment parameters [5e61475]
+    - [x] Add `app.json` or equivalent if required for Cloud Run button (or use URL params)
+    - [x] Ensure `julienbreux/hops:latest` image is referenced
+    - [x] Add placeholders for `HOPS_CONFIG_PATH`
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Implementation' (Protocol in workflow.md)
 
 ## Phase 3: Final Verification
