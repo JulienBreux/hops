@@ -4,10 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [x] **Track: add a Cloud Run button in the readme to deploy Hops easily**
-*Link: [./tracks/add_cloud_run_button_20260331/](./tracks/add_cloud_run_button_20260331/)*
-
----
-
 - [ ] **Track: Display a fish inside the Readme file for April**
 *Link: [./tracks/display_fish_20260401/](./tracks/display_fish_20260401/)*
