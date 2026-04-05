@@ -1,0 +1,24 @@
+{
+  "name": "hops",
+  "env": {
+    "HOPS_CONFIG_PATH": {
+      "description": "Path to the configuration file (optional if using environment variables)",
+      "value": ""
+    }
+  },
+  "options": {
+    "allow-unauthenticated": true,
+    "memory": "512Mi"
+  },
+  "build": {
+    "skip": true
+  },
+  "hooks": {
+    "prebuild": {
+      "commands": [
+        "docker pull julienbreux/hops:latest",
+        "docker tag julienbreux/hops:latest $IMAGE_URL"
+      ]
+    }
+  }
+}
