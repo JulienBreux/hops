@@ -7,7 +7,7 @@
     - [x] Identify parameters for repository, branch, and environment variables
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Preparation & Research' (Protocol in workflow.md) [e2492cb]
 
-## Phase 2: Implementation
+## Phase 2: Implementation [checkpoint: 694e64d]
 - [x] Task: Integrate button into README.md [04d3c66]
     - [x] Locate the appropriate insertion point at the top of README.md
     - [x] Add the Markdown for the button image and link
@@ -16,7 +16,7 @@
     - [x] Add `app.json` or equivalent if required for Cloud Run button (or use URL params)
     - [x] Ensure `julienbreux/hops:latest` image is referenced
     - [x] Add placeholders for `HOPS_CONFIG_PATH`
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Implementation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Implementation' (Protocol in workflow.md) [694e64d]
 
 ## Phase 3: Final Verification
 - [ ] Task: Verify deployment functionality
